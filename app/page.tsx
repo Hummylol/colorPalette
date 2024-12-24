@@ -27,7 +27,6 @@ const ColorBlock = ({ color, index, isLocked, toggleLock, title }: {
     toast(`Color ${isLocked ? "unlocked" : "locked"}`); // Show toast message
   };
 
-  // Handle click to copy color hex code to clipboard
   const handleClick = () => {
     navigator.clipboard.writeText(color); // Copy hex color to clipboard
     toast(`Copied ${color}`); // Show toast message
@@ -77,7 +76,6 @@ const Page = () => {
   const router = useRouter();
   const { colors, locked, regenerateColors, toggleLock } = useColorContext(); // Use context
 
-  // Handle spacebar press to regenerate colors
   const handleKeyPress = (event: KeyboardEvent) => {
     if (event.code === "Space") {
       regenerateColors();

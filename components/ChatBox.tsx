@@ -9,14 +9,10 @@ import { useState } from 'react'
 import { useColorContext } from '@/app/context/ColorContext'
 
 interface ChatBoxProps {
-    user: {
-        id: number
-        name: string
-    }
     onClose: () => void // Close function
 }
 
-export default function ChatBox({ user, onClose }: ChatBoxProps) {
+export default function ChatBox({  onClose }: ChatBoxProps) {
     const [messages, setMessages] = useState([
         { id: 1, sender: 'user', text: 'Hey there!' },
         { id: 2, sender: 'other', text: 'Hi! How can I help you?' },

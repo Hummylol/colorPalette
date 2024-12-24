@@ -18,12 +18,7 @@ export default function Page() {
   const colorsParam = searchParams.get("colors") || ""
   const colors = colorsParam.split(",")
 
-  const [color1, color2, color3, color4] = [
-    colors[0] || "#e5e7eb",
-    colors[1] || "#E5D0E3",
-    colors[2] || "#f3f4f6",
-    colors[3] || "#7BE0AD",
-  ]
+
 
   const user = {
     id: 1,
@@ -68,7 +63,7 @@ export default function Page() {
               style={{ backgroundColor: "" }}
             >
               {isChatOpen ? (
-                <ChatBox user={user} onClose={handleCloseChat} />
+                <ChatBox onClose={handleCloseChat} />
               ) : (
                 <div className="flex justify-center items-center h-full">
                   <Button onClick={handleOpenChat}  >Open Chat</Button>
