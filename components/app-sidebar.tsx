@@ -25,7 +25,6 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { useColorContext } from "../app/context/ColorContext";
 
 // This is sample data.
 const data = {

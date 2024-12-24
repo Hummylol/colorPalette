@@ -16,14 +16,10 @@ export default function Page() {
   const [isChatOpen, setIsChatOpen] = useState(false) // Manage chat visibility
   const searchParams = useSearchParams()
   const colorsParam = searchParams.get("colors") || ""
-  const colors = colorsParam.split(",")
 
 
 
-  const user = {
-    id: 1,
-    name: "Humaid",
-  }
+ 
 
   const handleCloseChat = () => {
     setIsChatOpen(false) // Close chat dialog
