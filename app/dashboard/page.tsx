@@ -5,7 +5,6 @@ import { AppSidebar } from "@/components/app-sidebar"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { useSearchParams } from "next/navigation"
 import { Component } from '@/components/Chart'
 import { PieChartComponent } from '@/components/PieChart'
 import { BarChartComponent } from "@/components/BarChart"
@@ -14,8 +13,6 @@ import { Button } from "@/components/ui/button"
 
 export default function Page() {
   const [isChatOpen, setIsChatOpen] = useState(false) // Manage chat visibility
-  const searchParams = useSearchParams()
-  const colorsParam = searchParams.get("colors") || ""
 
 
 
