@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, ResponsiveContainer } from "recharts";
 
 import {
   Card,
@@ -52,43 +52,45 @@ export function Component() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <AreaChart
-            accessibilityLayer
-            data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="dot" />}
-            />
-            <Area
-              dataKey="mobile"
-              type="natural"
-              fill={colors[1] || "hsl(var(--chart-2))"}
-              fillOpacity={0.4}
-              stroke={colors[1] || "hsl(var(--chart-2))"}
-              stackId="a"
-            />
-            <Area
-              dataKey="desktop"
-              type="natural"
-              fill={colors[0] || "hsl(var(--chart-1))"}
-              fillOpacity={0.4}
-              stroke={colors[0] || "hsl(var(--chart-1))"}
-              stackId="a"
-            />
-          </AreaChart>
+          <ResponsiveContainer width="100%" height={300}>
+            <AreaChart
+              accessibilityLayer
+              data={chartData}
+              margin={{
+                left: 12,
+                right: 12,
+              }}
+            >
+              <CartesianGrid vertical={false} />
+              <XAxis
+                dataKey="month"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                tickFormatter={(value) => value.slice(0, 3)}
+              />
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent indicator="dot" />}
+              />
+              <Area
+                dataKey="mobile"
+                type="natural"
+                fill={colors[1] || "hsl(var(--chart-2))"}
+                fillOpacity={0.4}
+                stroke={colors[1] || "hsl(var(--chart-2))"}
+                stackId="a"
+              />
+              <Area
+                dataKey="desktop"
+                type="natural"
+                fill={colors[0] || "hsl(var(--chart-1))"}
+                fillOpacity={0.4}
+                stroke={colors[0] || "hsl(var(--chart-1))"}
+                stackId="a"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
       <CardFooter>

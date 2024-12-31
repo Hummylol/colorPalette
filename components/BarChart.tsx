@@ -178,8 +178,8 @@ export function BarChartComponent() {
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: 1,
+              right: 1,
             }}
           >
             <CartesianGrid vertical={false} />

@@ -12,18 +12,18 @@ import ChatBox from "@/components/ChatBox"
 import { Button } from "@/components/ui/button"
 
 export default function Page() {
-  const [isChatOpen, setIsChatOpen] = useState(false) // Manage chat visibility
+  const [isChatOpen, setIsChatOpen] = useState(false) 
 
 
 
  
 
   const handleCloseChat = () => {
-    setIsChatOpen(false) // Close chat dialog
+    setIsChatOpen(false) 
   }
 
   const handleOpenChat = () => {
-    setIsChatOpen(true) // Open chat dialog
+    setIsChatOpen(true) 
   }
 
   return (
@@ -48,11 +48,11 @@ export default function Page() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl"><Component /></div>
-            <div className="aspect-video rounded-xl"><PieChartComponent /></div>
+          <div className="grid auto-rows-min gap-4 xsm:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3">
+            <div className="rounded-xl md:w-full"><Component /></div>
+            <div className="rounded-xl md:w-full"><PieChartComponent /></div>
             <div
-              className={`rounded-xl p-4 transition-all duration-300 border-2`}
+              className={`rounded-xl p-4 transition-all duration-300 border-2 md:w-full`}
               style={{ backgroundColor: "" }}
             >
               {isChatOpen ? (
@@ -64,7 +64,7 @@ export default function Page() {
               )}
             </div>
           </div>
-          <div className="min-h-[100vh] w-[60vw] flex-1 rounded-xl md:min-h-min" />
+          <div className="min-h-[100vh] w-full flex-1 rounded-xl md:min-h-min" />
           <BarChartComponent />
         </div>
       </SidebarInset>

@@ -14,7 +14,7 @@ const ColorBlock = ({ color, index, isLocked, toggleLock, title }: {
   index: number; 
   isLocked: boolean; 
   toggleLock: (index: number) => void; 
-  title?: string; // Optional title prop
+  title?: string;
 }) => {
   // Determine if the background color is light or dark
   const getTextColor = (color: string) => (colord(color).isDark() ? "white" : "black");
@@ -40,7 +40,7 @@ const ColorBlock = ({ color, index, isLocked, toggleLock, title }: {
     >
       {/* Title (Primary / Secondary) */}
       {title && (
-        <div className="font-bold text-lg mb-2" style={{ color: textColor }}>
+        <div className="font-bold text-sm mb-2" style={{ color: textColor }}>
           {title}
         </div>
       )}
@@ -74,7 +74,7 @@ const ColorBlock = ({ color, index, isLocked, toggleLock, title }: {
 
 const Page = () => {
   const router = useRouter();
-  const { colors, locked, regenerateColors, toggleLock } = useColorContext(); // Use context
+  const { colors, locked, regenerateColors, toggleLock } = useColorContext();
 
   const handleKeyPress = (event: KeyboardEvent) => {
     if (event.code === "Space") {
@@ -89,15 +89,19 @@ const Page = () => {
 
   // Navigate to dashboard with locked colors
   const navigateToDashboard = () => {
-    const lockedColors = colors.filter((_, index) => locked[index]);
-    router.push(`/dashboard?colors=${encodeURIComponent(lockedColors.join(","))}`);
+    router.push(`/dashboard`);
+  };
+  const navigateToMobile = () => {
+    router.push(`/mobile`);
   };
 
   return (
     <div className="h-screen">
       <div className="top-section h-[35%] relative">
-        <Button onClick={navigateToDashboard} className="mt-4 ml-1">Visualize Colours</Button>
-        <div className="absolute bottom-2 text-3xl">Click Space to generate colors!</div>
+        <Button onClick={navigateToDashboard} className="absolute top-2 left-1 hidden lg:block">Visualize Colours</Button>
+        <Button onClick={navigateToMobile} className="absolute top-4 left-2 sm:block md:block lg:hidden">Visualize colours</Button>
+        <Button onClick={regenerateColors} className="absolute right-2 top-4 lg:hidden sm:block md:block">Generate colour</Button>
+        <div className="absolute bottom-2 text-3xl hidden lg:block">Click Space to generate colors!</div>
       </div>
       <div className="h-[60%] w-full flex text-black">
         {colors.map((color, index) => (
